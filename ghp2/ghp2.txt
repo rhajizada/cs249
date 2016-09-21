@@ -1,0 +1,52 @@
+1. (2%) Is “status” a good boolean variable name? Why or why not?  
+ 
+Good because the boolean this variable contents answers the question what is the status. 
+2. (2%) Given the following Java code, what will print to the screen? 
+ int foodLeft = 0;  
+int waterLeft = 4;  
+int daysWithoutFood = 12;  
+int daysWithoutWater = 0; 
+ int numPeopleAlive = 3;  
+ 
+if( (foodLeft == 0 && daysWithoutFood > 14) || (waterLeft == 0 && daysWithoutWater > 3) || 
+(numPeopleAlive == 0)) 
+ { System.out.println("We all died on the trail."); 
+ } 
+ else {  
+System.out.println("ON TO OREGON!!!");  
+}  
+ 
+Console will print: 
+ON TO OREGON!!! 
+ 
+3. (2%) Are there any logical mistakes in this code? If so, list them. if(foodLeft = 0); 
+System.out.println("We are all starving!");  
+ 
+foodLeft will assign to 0 and we will get in infinite loop so we should first create a double and 
+assign it to number very close to 0 for example 1e­14 and then check if foodLeft is less than our 
+double. 
+ 
+4. (2%) Math.random() can return 1.0. 
+ 
+(b) False  
+ 
+5. (2%) The first 128 characters of Unicode are the same as ASCII. 
+ 
+ (a) True 
+ 
+6. (2%) What will the following code print out?  
+System.out.println(``One plus one is `` + 1+1);  
+ 
+One plus one is 1 1 
+ 
+7. (2%) Why is using “==” not correct for comparing two Strings?  
+ 
+
+8. (2%) A String’s data can be changed after the fact without creating a new String. 
+ (a) True 
+  
+9. (2%) What substring will be returned from the following code?  
+``Sometimes you have to roll a hard six.''.substring(4,11) 
+times y 
+
+

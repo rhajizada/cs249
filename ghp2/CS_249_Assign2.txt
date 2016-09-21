@@ -1,0 +1,113 @@
+CS 249: Assignment 2
+Selections, Mathematical Functions, Characters, and Strings
+
+Theory Questions (18%)
+1. (2%) Is “status” a good boolean variable name? Why or why not?
+
+2. (2%) Given the following Java code, what will print to the screen?
+
+int foodLeft = 0;
+int waterLeft = 4;
+int daysWithoutFood = 12;
+int daysWithoutWater = 0;
+int numPeopleAlive = 3;
+if( (foodLeft == 0 && daysWithoutFood > 14) ||
+(waterLeft == 0 && daysWithoutWater > 3) ||
+(numPeopleAlive == 0)) {
+System.out.println("We all died on the trail.");
+}
+else {
+System.out.println("ON TO OREGON!!!");
+}
+3. (2%) Are there any logical mistakes in this code? If so, list them.
+
+if(foodLeft = 0);
+System.out.println("We are all starving!");
+
+Page 1 of 4
+
+4. (2%) Math.random() can return 1.0.
+(a) True
+(b) False
+5. (2%) The first 128 characters of Unicode are the same as ASCII.
+(a) True
+(b) False
+6. (2%) What will the following code print out?
+
+System.out.println(``One plus one is `` + 1+1);
+7. (2%) Why is using “==” not correct for comparing two Strings?
+
+8. (2%) A String’s data can be changed after the fact without creating a new String.
+(a) True
+(b) False
+9. (2%) What substring will be returned from the following code?
+
+``Sometimes you have to roll a hard six.''.substring(4,11)
+
+Page 2 of 4
+
+Programming Assignments (82%)
+Where appropriate, use the Pseudocode Programming Process to implement!
+For this assignment, use a SEPARATE Java file for each requirement (not subrequirements)! Name each Java file “Assign2_N.java”, where N is the requirement
+number.
+You can use the checkboxes to track whether you’ve met each requirement.
+#
+1
+
+Questions
+Implement 3.3 (mild modification of Assignment 1, Programming
+Requirement 2, in that you must check for the “no solution” condition)
+Do NOT use “==” to check for equality of doubles!!! Create a constant
+named EPSILON equal to “1e-14” (see slide 45 of the “03
+Selections”).
+Input: 9.0 4.0 3.0 -5.0 -6.0 -21.0
+x = -2.0, y = 3.0
+Input: 1.0 2.0 2.0 4.0 4.0 5.0
+The equation has no solution
+
+2
+
+Implement 4.5
+
+3
+
+Given a line entered by the user:
+Check whether the line contains the target word “squirrel”.
+If it doesn’t, just print out the line.
+If it does, for each instance of the target word:
+Replace the target word with the phrase
+“...SQUIRREL!...”);
+Print the the entire modified line to the screen.
+INPUT: The squirrel is on the lawn; I’m not fond of that squirrel.
+OUTPUT: The ...SQUIRREL!... is on the lawn; I’m not fond of that
+...SQUIRREL!....
+
+Page 3 of 4
+
+Submission
+You will submit the following items as a *.tar or *.zip file:
+• A plaintext, Word doc, or PDF with your answers to any theory questions
+• Your .java file(s)
+Submit this tar/zip file on Blackboard under the appropriate assignment.
+Do NOT submit:
+• Your .class file(s)
+• Your project files
+
+Grading
+Below is a list of SOME of the grading penalties:
+• Sloppy or poor coding style
+• Bad coding design principles
+• Code that does not compile
+• Code that crashes, does not run, or takes a VERY long time to complete
+• Using code from ANY source other than the course materials
+• Collaboration on code of ANY kind; this is an INDIVIDUAL PROJECT
+• Sharing code with other people in this class or using code from this or any other
+related class
+• Output that is incorrect
+• Algorithms/implementations that are incorrect
+• Submitting improper files
+• Failing to submit ALL required files
+
+Page 4 of 4
+
+

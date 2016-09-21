@@ -1,0 +1,68 @@
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+CS 249: Assignment 1 
+ ​Intro to Java and Elementary Programming 
+ 
+
+Answers for Theory Questions  
+ 
+
+ 
+1. (2%) What is true about bytecode?
+(b) It is largely interpreted by the Java Virtual Machine 
+ 
+2. (2%) Which defines the syntax of the Java language?
+(b) Java language specification
+ 
+ 
+ 
+3. (2%) Write the code for an empty main() method in Java. 
+public class ​Main { 
+   ​public static void ​main(String[] args) { 
+         } 
+}
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+4. (2%) Given the following code, what kind of (implicit) type casting is this an 
+example of? 
+(b) Narrowing a type 
+double x = 5.0; int y = x; 
+ 
+ 
+ 
+5. (2%) Will the above code give you an error? If so, write the correct version of the 
+code. 
+int y = (int) (x);  
+
+ 
+ 
+6. (2%) In Java, write a constant of type int, with the name “SECRET_CODE” and 
+value “1234”.  
+final int SECRET_CODE = 1234;
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+
+
