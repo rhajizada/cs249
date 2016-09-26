@@ -1,10 +1,15 @@
+/*  ghp3 part 4
+ This program that converts number with texts into the numbers
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 import java.util.*;
 public class ghp3_4 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the numer: ");
-        String userNumber = input.nextLine();
+        String userNumber = input.nextLine(); //Takes number input from the user
         String parts[] = userNumber.split("-");
         int i = 0;
         System.out.print(userNumber + " is translated to " + parts[0] + '-' + parts[1]+'-');
@@ -14,6 +19,7 @@ public class ghp3_4 {
         }
     }
     public static int getNumber(char upperCaseLetter){
+        // This function converts the char to letter
         int symbol =0;
         switch (upperCaseLetter) {
             case 'A':

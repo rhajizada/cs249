@@ -1,3 +1,8 @@
+/*  ghp3 part 3
+ This program outputs formatted feet to meter and meter to feet conversion table
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 public class ghp3_3 {
  public static void main(String[] args) {
          System.out.println("Feet\tMeters\t|\tMeters\tFeet");
@@ -10,12 +15,12 @@ public class ghp3_3 {
 						}
 	}
 
-	public static double footToMeter(double foot){
+	public static double footToMeter(double foot){ // converts feet to meter
 		double meter = 0.305 * foot;
 		return meter;
 	 }
 
-	public static double meterToFoot(double meter){
+	public static double meterToFoot(double meter){ // converts meterr to feet
 		double foot = 3.279 * meter;
 		return foot;
 	}
