@@ -1,4 +1,4 @@
-public class Main {
+public class ghp5_1 {
 
     public static void main(String[] args) {
 	    Circle2D circle1 = new Circle2D(0, 0, 4);

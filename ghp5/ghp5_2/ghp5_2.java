@@ -1,4 +1,4 @@
-public class Main {
+public class ghp5_2 {
 
     public static void main(String[] args) {
         Player player = new Player(100, 100);
