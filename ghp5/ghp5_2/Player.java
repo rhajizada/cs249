@@ -8,6 +8,12 @@ public class Player {
     private int health;
     Point2D.Double position = new Point2D.Double();
     private Weapon currentWeapon = new Weapon();
+    Player(){
+        this.x = 0;
+        this.y = 0;
+        this.health = 100;
+        Point2D.Double position = new Point2D.Double(this.x, this.y);
+    }
     Player(double x, double y){
         this.x =x;
         this.y = y;

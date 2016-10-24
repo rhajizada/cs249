@@ -10,6 +10,14 @@ public class Weapon {
         this.name = name;
         this.damage = damage;
     }
+    private String getName(){
+        return this.name;
+    }
+
+    private int getDamage() {
+        return this.damage;
+    }
+
     public static void printWeapon(){
         if ( damage == 0 && name == null){
             System.out.println("NO WEAPON");

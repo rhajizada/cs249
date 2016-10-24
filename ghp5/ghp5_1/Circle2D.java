@@ -1,10 +1,12 @@
 /**
  * Created by rufathajizada on 10/19/16.
  */
+import java.awt.geom.Point2D;
 
 public class Circle2D {
     private double x;
     private double y;
+    private Point2D.Double position = new Point2D.Double();
     private double radius;
     Circle2D() {
         this.x = 0;
@@ -37,6 +39,10 @@ public class Circle2D {
         }
     }
 
+    private void setPosition(){
+        position = new Point2D.Double(this.x, this.y);
+    }
+
     protected boolean contains(Circle2D circle){
         if(Math.abs(this.radius - circle.radius) > getDistance(circle.x, circle.y)){
             return true;
@@ -54,6 +60,15 @@ public class Circle2D {
         else {
             return false;
         }
+    }
+
+    private Point2D.Double getPoition(){
+        setPosition();
+        return this.position;
+    }
+    
+    private double getRadius(){
+        return this.radius;
     }
 
 }
