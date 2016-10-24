@@ -1,3 +1,7 @@
+/*  ghp5 part 1 test driver
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 public class ghp5_1 {
 
     public static void main(String[] args) {
