@@ -62,12 +62,12 @@ public class Circle2D {
         }
     }
 
-    private Point2D.Double getPoition(){
+    protected Point2D.Double getPosition(){
         setPosition();
         return this.position;
     }
     
-    private double getRadius(){
+    protected double getRadius(){
         return this.radius;
     }
 
