@@ -1,3 +1,7 @@
+/*  ghp6 part 2 test driver
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 public class Main {
 
     public static void main(String[] args) {

@@ -1,3 +1,7 @@
+/*  ghp6 part 1 test driver
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 import java.util.*;
 public class Main {
     private static Player  player = new Player(3, 3);
