@@ -83,6 +83,10 @@ public class Player {
         this.inventory.add(new Weapon(name, weight, value, damage));
     }
 
+    protected void removeItem(int x){
+        this.inventory.remove(x);
+    }
+
     protected void printInventory(){
         for (Item item:this.inventory) {
             System.out.print(item.toString());
