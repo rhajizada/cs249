@@ -1,11 +1,13 @@
-/**
- * Created by hajizar on 10/28/2016.
- */
+/*  ghp6 part 2 Map Class
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 public class Map {
-    protected int mapRows;
-    protected int mapCols;
-    protected char [][]mapData;
+    protected int mapRows; //number of rows in the map
+    protected int mapCols; // number of columns in the map
+    protected char [][]mapData; // map itself
     Map(int mapRows, int mapCols){
+        //constructs map and fills it in with dots
         this.mapRows = mapRows;
         this.mapCols = mapCols;
         mapData = new char[this.mapCols][this.mapRows];
@@ -17,6 +19,7 @@ public class Map {
     }
 
     protected boolean copyTo(Map other){
+        // copies one map to another
         if(other == null && ( other.mapCols == this.mapCols) && (other.mapRows == this.mapRows)) {
             return false;
         }
@@ -32,6 +35,7 @@ public class Map {
     }
 
     protected void draw(){
+        // outputs the map on the scren
         int j = 0;
         for(int x = 0; x < this.mapCols; x++){
             for(int y = 0; y < this.mapRows;y++){
@@ -45,6 +49,7 @@ public class Map {
     }
 
     protected boolean setMapLocation(int x, int y, char c){
+        // sets the input character to the input location in the map
         if(x < this.mapCols && y <this.mapRows){
             mapData[y][x] = c;
             return true;
