@@ -47,12 +47,12 @@ public class Player {
         this.currentItem = item;
     }
 
-    protected void setItem( String name, int weight, int value){
+    protected void setItem( String name, double weight, double value){
         // creates new instance of Weapon class
         this.currentItem = new Item(name, weight, value);
     }
 
-    protected void setWeapon( String name, int weight, int value, int damage){
+    protected void setWeapon( String name, double weight, double value, int damage){
         // creates new instance of Weapon class
         this.currentWeapon = new Weapon(name, weight, value, damage);
     }
