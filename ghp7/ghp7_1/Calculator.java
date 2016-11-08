@@ -14,10 +14,10 @@ public class Calculator {
             if(expr.contains("+") || expr.contains("-")) { //checks whether input has '-' or '+'
                 for (int i = 0; i < expr.length(); i++) {
                     if (expr.charAt(i) == '-') {
-                        operands = expr.split("-"); // splits input into operand
+                        operands = expr.split("-"); // splits input into operands
                         operation = '-';
                     } else if (expr.charAt(i) == '+') {
-                        expr = expr.replaceAll("[+]", "+"); // splits input into operand
+                        expr = expr.replaceAll("[+]", "+"); // splits input into operands
                         operands = expr.split("[+]");
                         operation = '+';
                     }
