@@ -1,3 +1,7 @@
+/*  ghp7 part 2 test driver
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Scanner;

@@ -1,20 +1,23 @@
-/**
- * Created by hajizar on 11/2/2016.
- */
+/*  ghp7 part 1 Calculator Class
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 public class Calculator {
-    public static double eval(String expr) throws InvalidExpressionException, Exception, NumberFormatException {
-        String[] operands = new String[2];
-        char operation = '/';
-        Double operand1 = 0.0;
-        Double operand2 = 0.0;
+    public static double eval(String expr) throws InvalidExpressionException, Exception, NumberFormatException
+    // eval method takes user input and calculates
+    {
+        String[] operands = new String[2]; // String array that will contain operands
+        char operation = '/'; // operation between operands
+        Double operand1 = 0.0; // operand number 1
+        Double operand2 = 0.0; // operand number 2
         try {
-            if(expr.contains("+") || expr.contains("-")) {
+            if(expr.contains("+") || expr.contains("-")) { //checks whether input has '-' or '+'
                 for (int i = 0; i < expr.length(); i++) {
                     if (expr.charAt(i) == '-') {
-                        operands = expr.split("-");
+                        operands = expr.split("-"); // splits input into operand
                         operation = '-';
                     } else if (expr.charAt(i) == '+') {
-                        expr = expr.replaceAll("[+]", "+");
+                        expr = expr.replaceAll("[+]", "+"); // splits input into operand
                         operands = expr.split("[+]");
                         operation = '+';
                     }
@@ -27,6 +30,9 @@ public class Calculator {
             }
 
             try {
+                /*
+                Parses operands into double
+                */
                 operand1 = Double.parseDouble(operands[0]);
                 operand2 = Double.parseDouble(operands[1]);
 

@@ -1,3 +1,7 @@
+/*  ghp7 part 1 test driver
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 import java.util.*;
 public class Main {
 
