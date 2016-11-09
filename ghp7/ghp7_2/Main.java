@@ -10,10 +10,14 @@ public class Main {
 
     public static void main(String[] args) {
         try{
+            System.out.print("Enter URL or path ro the file: ");
             Scanner input = new Scanner(System.in);
             String path = input.nextLine();
-            WordCounter fileOrSite = WordCounter.WordCountData(path);
-            System.out.println(WordCounter.toString(fileOrSite));
+             WordCountData myFileOrPath = new WordCountData();
+             myFileOrPath = WordCounter.count(path);
+            System.out.println(myFileOrPath.result());
+            myFileOrPath.printer();
+
         }
 	 catch (Exception ex) {
             System.out.println("OH NO");
