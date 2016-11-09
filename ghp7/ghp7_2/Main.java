@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         try{
-            System.out.print("Enter URL or path ro the file: ");
+            System.out.print("Enter URL or path to the file: ");
             Scanner input = new Scanner(System.in);
             String path = input.nextLine();
              WordCountData myFileOrPath = new WordCountData();
