@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /*  ghp6 part 2 Map Class
@@ -43,15 +44,14 @@ public class Map implements Loadable{
 
     protected void draw(){
         // outputs the map on the scren
-        int j = 0;
-        for(int x = 0; x < this.mapCols; x++){
-            for(int y = 0; y < this.mapRows;y++){
-                j++;
-                System.out.print(this.mapData[x][y]);
-                if ( j % 10 == 0 && j != 0 ){
-                    System.out.println(' ');
-                }
+        int y = 0;
+        int x = 0;
+        while(y < this.mapCols){
+            for(x = 0;x < this.mapData[y].length;x++){
+                System.out.print(this.mapData[y][x]);
             }
+            System.out.println(" ");
+            y++;
         }
     }
 
@@ -76,13 +76,10 @@ public class Map implements Loadable{
         this.mapRows = mapRows;
         this.mapCols = mapCols;
         this.mapData = new char[this.mapCols][this.mapRows];
-        for(int i = 0; i < this.mapCols; i++){
-            String bufStr = input.nextLine();
-            char[] buffer = new char[bufStr.length()];
-            for(int j = 0; j < bufStr.length(); j++){
-                buffer[j] = bufStr.charAt(j);
-            }
-            this.mapData[i] = buffer;
+        int i =0;
+        while(input.hasNextLine()) {
+            this.mapData[i] = (input.nextLine()).toCharArray();
+            i++;
         }
 
     }
