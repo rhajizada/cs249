@@ -3,6 +3,8 @@
  Language: Java
 */
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -17,22 +19,29 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>(); // inventroy - array list that holds all the items
     Player(){
         // default constructor
-        this.x = 0;
-        this.y = 0;
+        this.x = new SimpleIntegerProperty(0);
+        this.y = new SimpleIntegerProperty(0);
         this.health = 100;
-        Point2D.Double position = new Point2D.Double(this.x, this.y);
+        Point2D.Double position = new Point2D.Double(0, 0);
     }
-    Player(double x, double y){
+    protected IntegerProperty getXProperty(){
+        return this.x;
+    }
+
+    protected IntegerProperty getYProperty(){
+        return this.y;
+    }
+    Player(int x, int y){
         // constructor that sets position and health
-        this.x =x;
-        this.y = y;
+        this.x = new SimpleIntegerProperty(x);
+        this.y = new SimpleIntegerProperty(y);
         this.health = 100;
-        Point2D.Double position = new Point2D.Double(this.x, this.y);
+        Point2D.Double position = new Point2D.Double(x, y);
     }
     protected void setPosition (int x, int y){
         // sets the position to x,y
-        this.x = x;
-        this.y = y;
+        this.x = new SimpleIntegerProperty(x);
+        this.y = new SimpleIntegerProperty(y);
     }
 
     protected void setHealth( int health){
