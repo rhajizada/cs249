@@ -25,34 +25,6 @@ public class Map implements Loadable{
             }
         }
     }
-    protected int getMapRows(){
-        return  this.mapRows;
-    }
-
-    protected int getMapCols(){
-        return this.mapCols;
-    }
-
-    public char getMapLocation(int x, int y){
-        if(y> this.mapCols || x > this.mapRows){
-            return ' ';
-        }
-        else {
-            return mapData[y][x];
-        }
-    }
-
-    public boolean canMoveTo(int x, int y){
-        if(y> this.mapCols || x > this.mapRows){
-            return false;
-        }
-        else if(this.mapData[y][x] == '.'){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
     protected boolean copyTo(Map other){
         // copies one map to another
@@ -93,6 +65,45 @@ public class Map implements Loadable{
             return false;
         }
     }
+    protected void copyMap(Map newMap){
+        this.mapCols = newMap.getMapCols();
+        this.mapRows = newMap.getMapRows();
+        int y = 0;
+        int x = 0;
+        while(y < this.mapCols){
+            for(x = 0;x < this.mapData[y].length;x++){
+                this.mapData[y][x] = newMap.getMapLocation(y,x);
+            }
+            y++;
+        }
+
+    }
+
+    protected int getMapRows(){return this.mapRows;}
+    protected int getMapCols(){return this.mapCols;}
+
+    public char getMapLocation(int y, int x){
+        if(y <= this.mapCols || x <= this.mapRows){
+            return this.mapData[y][x];
+
+        }
+        else{
+            return ' ';
+        }
+    }
+
+    public boolean canMoveTo(int y, int x){
+        if(y >this.mapRows || x > this.mapCols){
+            return false;
+        }
+        else if(this.mapData[y][x] == '.'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
     @Override
     public void load(Scanner input) throws Exception {

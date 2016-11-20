@@ -11,9 +11,9 @@ public class MapPane extends Pane {
     Map currentMap;
     MapPane(Map map){
         this.currentMap = map;
-        for(int i = 0; i < currentMap.mapRows;i++){
-            for(int j = 0; j < currentMap.mapCols;j++){
-                Tile tile = new Tile(j*TILE_WIDTH, i*TILE_HEIGHT, currentMap.getMapLocation(j, i));
+        for(int j = 0; j < currentMap.mapRows;j++){
+            for(int i = 0; i < currentMap.mapCols;i++){
+                Tile tile = new Tile(i*TILE_WIDTH, j*TILE_HEIGHT, currentMap.getMapLocation(j, i));
                 getChildren().add(tile);
             }
         }
@@ -23,15 +23,15 @@ public class MapPane extends Pane {
     private class Tile extends Rectangle{
         Tile(double x, double y, char type){
             super(x, y, TILE_WIDTH, TILE_HEIGHT);
-             if(type ==' '){
-                 setFill(Color.BLACK);
-             }
-             if(type == '#'){
-                 setFill(Color.GREY);
-             }
-             if(type =='.'){
-                 setFill(Color.LIGHTGREY);
-             }
+            if(type ==' '){
+                setFill(Color.BLACK);
+            }
+            if(type == '#'){
+                setFill(Color.GREY);
+            }
+            if(type =='.'){
+                setFill(Color.LIGHTGREY);
+            }
         }
     }
 }

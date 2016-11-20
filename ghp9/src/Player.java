@@ -4,7 +4,6 @@
 */
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -13,35 +12,30 @@ public class Player {
     private IntegerProperty x; // X axis position
     private IntegerProperty y; // Y axis position
     private int health; // health points
-    private Point2D.Double position = new Point2D.Double(); // position on map
     private Item currentWeapon = new Weapon(); // current weapon - instance of weapon class
     private Item currentItem = new Item(); //current Item - instance of item class
     private ArrayList<Item> inventory = new ArrayList<>(); // inventroy - array list that holds all the items
     Player(){
         // default constructor
-        this.x = new SimpleIntegerProperty(0);
+        this.x =  new SimpleIntegerProperty(0);
         this.y = new SimpleIntegerProperty(0);
         this.health = 100;
-        Point2D.Double position = new Point2D.Double(0, 0);
     }
-    protected IntegerProperty getXProperty(){
-        return this.x;
-    }
-
-    protected IntegerProperty getYProperty(){
-        return this.y;
-    }
-    Player(int x, int y){
+    Player(int y, int x){
         // constructor that sets position and health
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
         this.health = 100;
-        Point2D.Double position = new Point2D.Double(x, y);
     }
-    protected void setPosition (int x, int y){
+    protected void setPosition (int y, int x){
         // sets the position to x,y
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
+    }
+
+    protected void Binder(IntegerProperty x, IntegerProperty y){
+        this.x.bind(x);
+        this.y.bind(y);
     }
 
     protected void setHealth( int health){
@@ -53,7 +47,8 @@ public class Player {
         // sets current weapon to weapon input
         this.currentWeapon = weapon;
     }
-
+    protected IntegerProperty getXProperty(){return this.x;}
+    protected IntegerProperty getYProperty(){return this.y;}
     protected void setItem(Item item){
         // sets cuurent item to item input
         this.currentItem = item;
@@ -74,10 +69,6 @@ public class Player {
         return this.health;
     }
 
-    protected Point2D.Double getPosition(){
-        //returns the position of the player
-        return this.position;
-    }
 
     protected Item getCurrentWeapon(){
         // returns the current weapon
