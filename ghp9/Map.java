@@ -76,13 +76,13 @@ public class Map implements Loadable{
             }
             y++;
         }
-
     }
 
-    protected int getMapRows(){return this.mapRows;}
-    protected int getMapCols(){return this.mapCols;}
+    protected int getMapRows(){return this.mapRows;} // returns number of rows
+    protected int getMapCols(){return this.mapCols;} // returns number of columns
 
     public char getMapLocation(int y, int x){
+        // returns character at [y][x]
         if(y <= this.mapCols || x <= this.mapRows){
             return this.mapData[y][x];
 
@@ -93,6 +93,7 @@ public class Map implements Loadable{
     }
 
     public boolean canMoveTo(int y, int x){
+        // checks if player can move to [y][x]
         if(y >this.mapRows || x > this.mapCols){
             return false;
         }

@@ -2,9 +2,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-/**
- * Created by hajizar on 11/19/2016.
- */
+/*
+ghp9 PlayerPane class inherits pane class
+Written by Rufat Hajizada for cs249
+Language: java 
+*/
 public class PlayerPane extends Pane {
     Player playerState;
 

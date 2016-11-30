@@ -2,9 +2,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-/**
- * Created by hajizar on 11/16/2016.
- */
+/*
+ghp9 MapPane class inherits pane class
+Written by Rufat Hajizada for cs249
+Language: java 
+*/
 public class MapPane extends Pane {
     final static int TILE_WIDTH = 32;
     final static int TILE_HEIGHT = 32;

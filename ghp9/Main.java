@@ -12,26 +12,29 @@ import java.net.URL;
 import java.util.Scanner;
 
 import static javafx.scene.input.KeyCode.*;
+/*  ghp9 Nethack
+ Written by Rufat Hajizada for CS249
+ Language: Java
+*/
 
 public class Main extends Application{
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         try{
-            URL url = new URL("http://web.cs.sunyit.edu/~realemj/2016fall/Map01.txt");
-            Scanner pageInput = new Scanner(url.openStream());
-            Map currentMap = new Map();
-            currentMap.load(pageInput);
-            MapPane mapPane = new MapPane(currentMap);
-            Pane displayPane = new Pane();
-            displayPane.getChildren().add(mapPane);
-            Player player = new Player(5, 5);
-            Scene scene = new Scene(displayPane);
-            System.out.println(currentMap.mapCols + " " + currentMap.mapRows);
-            PlayerPane playerPane = new PlayerPane(player);
-            displayPane.getChildren().add(playerPane);
+            URL url = new URL("http://web.cs.sunyit.edu/~realemj/2016fall/Map01.txt"); //Map URL
+            Scanner pageInput = new Scanner(url.openStream()); // Map scanner
+            Map currentMap = new Map(); // instance of Map
+            currentMap.load(pageInput); // loads pageInput into currentMap
+            MapPane mapPane = new MapPane(currentMap); // instance of MapPane
+            Pane displayPane = new Pane(); // instance of Pane
+            displayPane.getChildren().add(mapPane); // adds mapPane to displayPane
+            Player player = new Player(5, 5); // instance of Player
+            Scene scene = new Scene(displayPane); // adds displayPane to the scene
+            PlayerPane playerPane = new PlayerPane(player); // instance of PlayerPane
+            displayPane.getChildren().add(playerPane); // adds playerPane to the cdisplayPane
 
             scene.setOnKeyPressed(
+                // lambda expression handling controls
                     keyEvent ->{
                         boolean childrenStatus = false;
                         try {
@@ -42,28 +45,22 @@ public class Main extends Application{
                             switch (key) {
                                 case A:
                                     xCheck--;
-                                    System.out.println("You pressed A");
                                     break;
                                 case W:
                                     yCheck--;
-                                    System.out.println("You pressed W");
                                     break;
                                 case S:
                                     yCheck++;
-                                    System.out.println("You pressed S");
                                     break;
                                 case D:
                                     xCheck++;
-                                    System.out.println("You pressed D");
                                     break;
                                 default:
-                                    System.out.println("You pressed something else");
                                     break;
                             }
 
                             if(currentMap.canMoveTo(yCheck, xCheck)) {
                                 player.setPosition(yCheck, xCheck);
-                                System.out.println(yCheck + " " + xCheck);
                                 displayPane.getChildren().remove(1);
                                 playerPane.playerSetter(yCheck, xCheck);
                                 displayPane.getChildren().add(playerPane);
