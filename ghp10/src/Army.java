@@ -7,17 +7,14 @@ import java.util.ArrayList;
 public class Army<E extends Unit> {
     ArrayList<E> soldiers = new ArrayList<E>();
     String name;
-    Army(String name){
+    Army(String name, E e, int size){
+
         this.name = name;
+        this.soldiers = new ArrayList<E>(size);
+        for(int i =0;i< size;i++)
+            this.soldiers.add(e);
     }
-    public void reSize(int size, E e){
-        soldiers = new ArrayList<E>(size);
-        int i = 0;
-        while( i < size){
-            soldiers.add(i, e);
-            i++;
-        }
-    }
+
 
     public String getName(){ return this.name; }
     public void addSoldier(E soldier){
@@ -50,14 +47,15 @@ public class Army<E extends Unit> {
     }
     public <T extends Unit> void attacks(Army<T> other){
         ArrayList<E> deathToll = new ArrayList<E>();
-        int randomIndex;
+        assert(!this.soldiers.isEmpty()&&!other.soldiers.isEmpty());
         for(int i = 0; i < this.getSoldierCnt(); i++ ) {
-            randomIndex = (int) (Math.random() * ( other.getSoldierCnt()));
+            int randomIndex = this.getRandom(other);
             this.getSoldier(i).attack(other.getSoldier(randomIndex));
+
             if(other.getSoldier(randomIndex).getHealth() <= 0){
-                other.removeSoldier(other.getSoldier(i));
+                other.removeSoldier(other.getSoldier(randomIndex));
             }
-            else{
+            else if( other.getSoldier(randomIndex).getHealth() > 0){
                 other.getSoldier(randomIndex).attack(this.getSoldier(i));
                 if(this.getSoldier(i).getHealth() <= 0){
                     deathToll.add(this.getSoldier(i));
@@ -65,5 +63,9 @@ public class Army<E extends Unit> {
             }
         }
         this.soldiers.removeAll(deathToll);
+    }
+
+    public <T extends Unit> int getRandom(Army<T> other){
+        return (int) (Math.random() * ( other.getSoldierCnt()));
     }
 }

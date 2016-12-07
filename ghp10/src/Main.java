@@ -8,18 +8,19 @@ public class Main {
         int HumanTroops = input.nextInt();
         System.out.println("Enter the number of Orc troops: ");
         int OrcTroops = input.nextInt();
-        Army<Human> gondor = new Army("Gondor");
-        gondor.reSize(HumanTroops, new Human());
-        Army<Orc> mordor = new Army("Mordor");
-        mordor.reSize(OrcTroops, new Orc());
+        Army<Human> gondor = new Army("Gondor", new Human(), HumanTroops);
+        Army<Orc> mordor = new Army("Mordor", new Orc(), OrcTroops);
         int battleCnt = 0;
         System.out.println(gondor.toString());
         System.out.println(mordor.toString());
+        System.out.println(gondor.getSoldierCnt());
+        System.out.println(mordor.getSoldierCnt());
 
         while (!gondor.isDefeated() && !mordor.isDefeated()) {
             System.out.println("BATTLE " + battleCnt);
-            gondor.attacks(mordor);
             mordor.attacks(gondor);
+            gondor.attacks(mordor);
+
             System.out.println(gondor.toString());
             System.out.println(mordor.toString());
             battleCnt++;
@@ -31,6 +32,6 @@ public class Main {
         } else {
             System.out.println("Both sides lost!");
         }
-
     }
+
 }

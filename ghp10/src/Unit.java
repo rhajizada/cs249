@@ -24,9 +24,9 @@ public abstract class Unit {
         return name;
     }
     public void attack(Unit other){
-        if(this.getHealth() > 0 && other.getHealth() > 0) {
+        if((this.getHealth()) > 0 && (other.getHealth() > 0)) {
            int currentAttack = (int) (Math.random() * this.attack);
-            other.setHeath(getHealth() - currentAttack);
+            other.setHeath(other.getHealth() - currentAttack);
         }
 
     }
