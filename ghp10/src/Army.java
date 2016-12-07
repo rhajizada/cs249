@@ -7,12 +7,8 @@ import java.util.ArrayList;
 public class Army<E extends Unit> {
     ArrayList<E> soldiers = new ArrayList<E>();
     String name;
-    Army(String name, E e, int size){
-
+    Army(String name){
         this.name = name;
-        this.soldiers = new ArrayList<E>(size);
-        for(int i =0;i< size;i++)
-            this.soldiers.add(e);
     }
 
 
@@ -21,6 +17,9 @@ public class Army<E extends Unit> {
         soldiers.add(soldier);
     }
     public void removeSoldier(E soldier){
+        soldiers.remove(soldier);
+    }
+    public void removeSoldier(int soldier){
         soldiers.remove(soldier);
     }
     public E getSoldier(int i){
@@ -50,11 +49,18 @@ public class Army<E extends Unit> {
         assert(!this.soldiers.isEmpty()&&!other.soldiers.isEmpty());
         for(int i = 0; i < this.getSoldierCnt(); i++ ) {
             int randomIndex = this.getRandom(other);
-            this.getSoldier(i).attack(other.getSoldier(randomIndex));
+            if(other.getSoldierCnt() == 0){
+                break;
+            }
+
+            E attacker = this.getSoldier(i);
+            T attacked = other.getSoldier(randomIndex);
+            attacker.attack(attacked);
 
             if(other.getSoldier(randomIndex).getHealth() <= 0){
-                other.removeSoldier(other.getSoldier(randomIndex));
+                other.removeSoldier(randomIndex);
             }
+
             else if( other.getSoldier(randomIndex).getHealth() > 0){
                 other.getSoldier(randomIndex).attack(this.getSoldier(i));
                 if(this.getSoldier(i).getHealth() <= 0){

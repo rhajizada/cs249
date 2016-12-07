@@ -8,23 +8,27 @@ public class Main {
         int HumanTroops = input.nextInt();
         System.out.println("Enter the number of Orc troops: ");
         int OrcTroops = input.nextInt();
-        Army<Human> gondor = new Army("Gondor", new Human(), HumanTroops);
-        Army<Orc> mordor = new Army("Mordor", new Orc(), OrcTroops);
-        int battleCnt = 0;
-        System.out.println(gondor.toString());
-        System.out.println(mordor.toString());
-        System.out.println(gondor.getSoldierCnt());
-        System.out.println(mordor.getSoldierCnt());
+        Army<Human> gondor = new Army("Gondor");
+        Army<Orc> mordor = new Army("Mordor");
+        for(int i = 0; i < HumanTroops; i++){
+            gondor.addSoldier(new Human());
+        }
+        for(int i = 0; i < OrcTroops; i++){
+            mordor.addSoldier(new Orc());
+        }
 
+        int battleCnt = 0;
         while (!gondor.isDefeated() && !mordor.isDefeated()) {
             System.out.println("BATTLE " + battleCnt);
-            mordor.attacks(gondor);
+
             gondor.attacks(mordor);
+            mordor.attacks(gondor);
 
             System.out.println(gondor.toString());
             System.out.println(mordor.toString());
             battleCnt++;
         }
+        System.out.println("BATTLES FOUGHT: " + battleCnt);
         if (!gondor.isDefeated()) {
             System.out.println(gondor.getName() + " is victorious!");
         } else if (!mordor.isDefeated()) {
