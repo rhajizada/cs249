@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 /**
  * Created by rufathajizada on 12/5/16.
  */
@@ -11,8 +12,10 @@ public class Army<E extends Unit> {
     }
     public void reSize(int size, E e){
         soldiers = new ArrayList<E>(size);
-        for(int i = 0; i <= size; i++){
+        int i = 0;
+        while( i < size){
             soldiers.add(i, e);
+            i++;
         }
     }
 
@@ -47,17 +50,16 @@ public class Army<E extends Unit> {
     }
     public <T extends Unit> void attacks(Army<T> other){
         ArrayList<E> deathToll = new ArrayList<E>();
-        int i = 0;
         int randomIndex;
-        while(other.isDefeated()) {
-            randomIndex = (int) (Math.random() * other.getSoldierCnt()) + 1;
+        for(int i = 0; i < this.getSoldierCnt(); i++ ) {
+            randomIndex = (int) (Math.random() * ( other.getSoldierCnt()));
             this.getSoldier(i).attack(other.getSoldier(randomIndex));
-            if(!other.getSoldier(randomIndex).kill(other.getSoldier(randomIndex).getHealth())){
+            if(other.getSoldier(randomIndex).getHealth() <= 0){
                 other.removeSoldier(other.getSoldier(i));
             }
             else{
-                other.getSoldier(i).attack(this.getSoldier(i));
-                if(!this.getSoldier(i).kill(this.getSoldier(i).getHealth())){
+                other.getSoldier(randomIndex).attack(this.getSoldier(i));
+                if(this.getSoldier(i).getHealth() <= 0){
                     deathToll.add(this.getSoldier(i));
                 }
             }

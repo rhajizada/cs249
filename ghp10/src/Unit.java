@@ -19,23 +19,15 @@ public abstract class Unit {
     public int getAttack(){ return this.attack;}
     public void setHeath(int health){ this.health = health;}
     public boolean isAlive(){ return alive;}
-    public boolean kill(int health){
-        if(health<= 0){
-            alive = false;
-        }
-        else{
-            alive=true;
-        }
-        return this.alive;
-    }
+
     public String toString(){
         return name;
     }
     public void attack(Unit other){
-        if(this.kill(this.getHealth()) && other.kill(other.getHealth())) {
-           int currentAttack = 1 + (int) (Math.random() * this.attack);
+        if(this.getHealth() > 0 && other.getHealth() > 0) {
+           int currentAttack = (int) (Math.random() * this.attack);
             other.setHeath(getHealth() - currentAttack);
         }
-        other.kill(other.getHealth());
+
     }
 }
