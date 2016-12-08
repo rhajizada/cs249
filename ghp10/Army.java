@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 
+/* 
+    ghp10 generic class Army
+    Written by Rufat Hajizada for cs249
+    Language: Java
+*/
 
-/**
- * Created by rufathajizada on 12/5/16.
- */
 public class Army<E extends Unit> {
     ArrayList<E> soldiers = new ArrayList<E>();
     String name;

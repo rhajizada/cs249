@@ -1,6 +1,8 @@
-/**
- * Created by rufathajizada on 12/5/16.
- */
+/*
+    ghp10 abstract class Unit
+    Written by Rufat Hajizada for cs249
+    Language: Java
+*/
 public abstract class Unit {
     int attack;
     int health;
